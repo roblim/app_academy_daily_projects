@@ -15,6 +15,15 @@ class LRUCache
   end
 
   def get(key)
+    if @map.include?(key)
+      #return the key/val pair and update the linked list
+
+    else
+      # need to increment count and then eject if count > max
+      eject! if @map.count == @max
+      new_node = @store.append(key, prc.call(key))
+      @map.set(key, new_node)
+    end
   end
 
   def to_s
