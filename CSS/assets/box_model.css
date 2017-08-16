@@ -4,6 +4,8 @@ body {
   /* If the user cannot load the Arial font, the sans-serif font is used */
   font-family: Arial, sans-serif;
   background-color: #FEFFF1;
+  width: 900px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -75,4 +77,45 @@ h2 + .user_review {
 .nav_menu {
   display: inline;
   padding: 20px;
+}
+
+.main_section {
+  width: 700px;
+  display: inline-block;
+}
+
+aside {
+  width: 180px;
+  display: inline-block;
+  margin-right: 15px;
+  vertical-align: top;
+}
+
+.ingredients-list > li {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.directions > li {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.input_element {
+  align: center;
+  display: block;
+  width: 600px;
+}
+
+#expertise {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+}
+#name {
+  width: 300px;
+}
+
+#reviews {
+  margin-left: 195px;
 }

@@ -51,7 +51,7 @@
     </ul>
   </aside>
 
-  <section>
+  <section class="main_section">
     <h1>Shakshukah</h1>
 
     <figure>
@@ -69,7 +69,7 @@
     </p>
 
     <h2 id="directions">Directions</h2>
-    <ol>
+    <ol class="directions">
       <li>
         Heat a deep, large skillet or saut&eacute; pan on medium. Slowly warm olive oil in the pan. Add chopped onion, saut&eacute; for a few minutes until the onion begins to soften. Add garlic and continue to saut&eacute; till mixture is fragrant.
       </li>
@@ -98,18 +98,18 @@
     <h2>Reviews</h2>
       <form id="review-form" action="/reviews" method="post">
         <label for="name">Name</label>
-        <input id="name" type="text" name="name">
+        <input id="name" class="input_element"type="text" name="name">
 
-        <label for="rating">Rating</label>
+        <label for="rating"></label>
         1<input type="radio" name="rating" value="1" checked>
         2<input type="radio" name="rating" value="2">
         3<input type="radio" name="rating" value="3">
         4<input type="radio" name="rating" value="4">
         5<input type="radio" name="rating" value="5">
 
-        <label for="expertise">Cooking Expertise</label>
+        <label for="expertise"></label>
 
-        <select id="expertise" name="expertise">
+        <select id="expertise" class="input_element" name="expertise">
           <option value="Select Cooking Expertise" disabled="true" selected="true">Select Cooking Experise</option>
 
           <option value="Sometimes Cook">Sometimes Cook</option>
@@ -122,7 +122,7 @@
         </select>
 
         <label>Review
-          <textarea id="review" name="review" cols="30" rows="10"></textarea>
+          <textarea id="review" class="input_element" name="review" cols="30" rows="10"></textarea>
         </label>
 
         <input type="submit" value="Submit Review">
