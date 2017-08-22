@@ -1,0 +1,6 @@
+<h1>All Cats Available for Rent</h1>
+<% @cats.each do |cat| %>
+<%= cat.name %>
+<%= link_to 'cat', cat_url(cat) %>
+<br>
+<% end %>
