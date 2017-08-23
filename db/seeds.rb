@@ -16,6 +16,14 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 
+
+# id         :integer          not null, primary key
+#  cat_id     :integer          not null
+#  start_date :date             not null
+#  end_date   :date             not null
+#  status     :string           default("PENDING"), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 cat1 = Cat.create!(birth_date: Faker::Date.birthday,
                    color: "black",
                    name: Faker::Name.name,
@@ -46,3 +54,7 @@ cat6 = Cat.create!(birth_date: Faker::Date.birthday,
                    name: Faker::Name.name,
                    sex: "M",
                    description: Faker::Lorem.paragraph)
+
+rental1 = CatRentalRequest.create!(cat_id: 1, start_date: "2017-08-10", end_date: "2017-08-20", status: "PENDING")
+rental2 = CatRentalRequest.create!(cat_id: 1, start_date: "2017-08-12", end_date: "2017-08-22", status: "PENDING")
+rental3 = CatRentalRequest.create!(cat_id: 1, start_date: "2017-09-10", end_date: "2017-09-20", status: "PENDING")

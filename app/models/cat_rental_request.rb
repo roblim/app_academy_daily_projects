@@ -20,4 +20,15 @@ class CatRentalRequest < ApplicationRecord
     foreign_key: :cat_id,
     primary_key: :id,
     class_name: :Cat
+
+  def overlapping_requests
+    dates = {new_start: self.start_date, new_end: self.end_date}
+    CatRentalRequest.where("(start_date < :new_start AND :new_start < end_date) OR
+    (:new_start < start_date AND start_date < :new_end)", dates)
+  end
+
+  def overlapping_approved_requests
+    overlaps = overlapping_requests
+    overlaps.select { |overlap| overlap.status == "APPROVED" }
+  end
 end
