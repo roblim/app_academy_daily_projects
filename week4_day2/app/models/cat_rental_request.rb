@@ -31,4 +31,8 @@ class CatRentalRequest < ApplicationRecord
     overlaps = overlapping_requests
     overlaps.select { |overlap| overlap.status == "APPROVED" }
   end
+
+  def does_not_overlap_approved_request
+    overlapping_approved_requests
+  end
 end
