@@ -1,0 +1,37 @@
+.main_content {
+  display: flex;
+  padding-top: 20px;
+}
+
+.main_content ul {
+  list-style: initial;
+  margin-left: 16px;
+
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+}
+
+iframe {
+  width: 100%;
+  height: auto;
+  padding-bottom: 20px;
+}
+
+.right-sidebar h2 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.right-container {
+  display: flex;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.col-50p img {
+  height: 100px;
+  object-fit: cover;
+}
