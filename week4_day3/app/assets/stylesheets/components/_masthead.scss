@@ -4,9 +4,11 @@
 	align-items: center;
 	border-bottom: 2px solid black;
 	position: relative;
+	border-top: 1px solid $light-gray
 }
 
 .language-nav {
+	display: flex;
 	position: absolute;
 	top: -15px;
 	left: calc(50% - (177.78px/2));
@@ -15,7 +17,10 @@
 	border-bottom: none;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
+
 }
+
+
 
 .language-nav a {
 	margin: 0 5px;
@@ -23,15 +28,30 @@
 	font-family: $sans-serif;
 	font-size: 10px;
 	color: $dark-gray;
+	border: none;
+}
+
+.language-nav li:first-child {
+	font-weight: bold;
+}
+
+.language-nav li {
+	border: none;
 }
 
 .language-nav ul {
 	display: flex;
+	border: none;
+}
+
+.language-nav a:hover {
+	text-decoration: underline;
 }
 
 .logo {
 	max-width: 400px;
 	margin-top: 10px;
+	border: none;
 }
 
 .masthead-links {
@@ -40,11 +60,17 @@
 	font-size: 11px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	border: none;
 }
 
 .masthead-links li {
 	margin-left: 10px;
 	border-right: 1px solid $light-gray;
+	text-decoration: none;
+}
+
+.masthead-links li:last-of-type {
+	border-right: none;
 }
 
 .masthead-links button {
@@ -60,13 +86,19 @@
 }
 
 .masthead-links a,
-.masthead-links button, 
+.masthead-links button,
 .masthead-links time {
 	margin-right: 10px;
+	border: none;
 }
 
 .masthead-links i {
 	margin-right: 5px;
+	border: none;
+}
+
+.masthead-links i + a:hover {
+	text-decoration: underline;
 }
 
 .masthead-links strong {
