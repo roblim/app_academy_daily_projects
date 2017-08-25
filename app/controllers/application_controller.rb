@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
-  # protect_from_forgery with: :exception
+  protect_from_forgery with: :exception
+  
   helper_method :current_user, :login_user!
+
+  def already_logged_in
+    redirect_to cats_url if current_user
+  end
 
   def current_user
     @current_user ||= User.find_by(session_token: session[:session_token])
