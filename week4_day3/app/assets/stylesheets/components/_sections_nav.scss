@@ -1,0 +1,23 @@
+.sections_nav {
+  display: flex;
+  justify-content: center;
+  font-family: $sans-serif;
+  font-size: 12px;
+  border-bottom: 1px $light-gray solid;
+}
+
+.sections_nav ul {
+  display: flex;
+}
+
+.sections_nav li {
+  margin: 12px;
+}
+
+.sections_nav li a:hover {
+  background-color: $light-gray;
+}
+
+.sections_nav li:last-child:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+require 'launchy'
+
+while true
+  print "Please enter your email: "
+  email = gets.chomp
+
+  if User.exists?(email: email)
+    user = User.find_by(email: email)
+    puts "\nWelcome back, #{email}"
+  else
+    user= User.new(email: email)
+    user.save
+    puts "\nWelcome #{email}"
+  end
+
+  begin
+  print "\nWould you like to (c)reate or (v)isit a shortened URL?: "
+
+  choice = gets.chomp
+
+  if choice == 'c'
+    print "\nPlease enter the URL you would like to shorten: "
+    url = gets.chomp
+
+    short = ShortenedUrl.shorten(user, url)
+    print "\nYour shortened URL is: #{short.short_url}\n\n"
+  elsif choice == "v"
+    print "\nPlease enter the shortened URL you would like to visit: "
+    url = gets.chomp
+    short_obj= ShortenedUrl.find_by(short_url: url)
+    long_url = short_obj.long_url
+    system("launchy #{long_url}")
+    Visit.record_visit!(user, short_obj)
+  else
+    raise "\nInvalid input. Please try again!\n"
+  end
+
+  rescue ArgumentError
+    print
+  rescue
+    print "\nInvalid input. Please try again!\n"
+    retry
+  end
+end
