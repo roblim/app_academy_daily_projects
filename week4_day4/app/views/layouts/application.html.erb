@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NinetyNineCats</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <header>
+    <% if self.current_user %>
+      <%= self.current_user.user_name %>
+      <%= button_to "Log Out",session_url, method: "delete" %>
+    <% else %>
+      <%=  button_to "Log In", new_session_url, method: "get" %>
+    <% end %>
+
+
+  </header>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

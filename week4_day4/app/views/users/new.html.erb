@@ -1,0 +1,13 @@
+<form action="/users" method="POST">
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+  <label for="username">Username</label>
+  <input type="text" name="user[user_name]" id = "username">
+  <br>
+  <label for="password">Password</label>
+  <input type="password" name="user[password]" id = "password">
+  <br>
+  <input type="submit" value="Sign Up">
+</form>
