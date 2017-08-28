@@ -11,4 +11,16 @@
 #
 
 class Note < ApplicationRecord
+  validates :user_id, :track_id, :note_body, presence: true
+
+  belongs_to :track,
+    foreign_key: :track_id,
+    primary_key: :id,
+    class_name: :Track
+
+  belongs_to :user,
+    foreign_key: :user_id,
+    primary_key: :id,
+    class_name: :User
+
 end

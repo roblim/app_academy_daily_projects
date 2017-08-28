@@ -15,6 +15,11 @@ class User < ApplicationRecord
   validates :password_digest, :session_token, presence: true
   after_initialize :ensure_session_token
 
+  has_many :notes,
+    foreign_key: :user_id,
+    primary_key: :id,
+    class_name: :Note
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64
   end
