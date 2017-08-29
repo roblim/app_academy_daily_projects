@@ -32,16 +32,18 @@ RSpec.describe User, type: :model do
       expect(user.password_digest).to_not be_nil
     end
     it "does not persist password to database" do
-      expect(user.password).to be_nil
+      user.save
+      db_user = User.find_by(id: user.id)
+      expect(db_user.password).to be_nil
     end
     it "sets @password instance variable" do
-      expect(@password).to eq('password')
+      expect(user.password).to eq('password')
     end
   end
 
   describe "#password" do
     it "reads @password instance variable to allow validation" do
-      expect(password).to eq('password')
+      expect(user.password).to eq('password')
     end
   end
 
@@ -49,21 +51,21 @@ RSpec.describe User, type: :model do
     context "with invalid username" do
       it "returns nil" do
         user.save
-        expect(User.find_by_credentials(username: nil)).to be_nil
+        expect(User.find_by_credentials(nil, '')).to be_nil
       end
     end
 
     context "with valid username but invalid password" do
       it "returns nil" do
         user.save
-        expect(User.find_by_credentials(username: user.username, password: '')).to be_nil
+        expect(User.find_by_credentials(user.username, '')).to be_nil
       end
     end
 
     context "with valid credentials" do
       it "returns user" do
         user.save
-        expect(User.find_by_credentials(username: user.username, password: user.password)).to eq(user)
+        expect(User.find_by_credentials(user.username, user.password)).to eq(user)
       end
     end
   end
@@ -82,6 +84,7 @@ RSpec.describe User, type: :model do
     end
   end
 
+  it { should have_many(:goals) }
   it { should have_many(:left_comments) }
-  it { should have_many(:received_comments) }
+  it { should have_many(:received_comments).through(:goals) }
 end
