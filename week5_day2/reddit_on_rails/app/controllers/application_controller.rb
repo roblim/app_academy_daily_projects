@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?
 
-  def current_user(username, password)
+  def current_user
     return nil unless session[:session_token]
     @current_user ||= User.find_by_session_token(session[:session_token])
   end
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     user.reset_session_token!
     user.save!
     session[:session_token] = user.session_token
-    redirect_to links_path
+    redirect_to subs_path
   end
 
   def log_out!

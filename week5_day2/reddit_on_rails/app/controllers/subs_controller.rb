@@ -7,7 +7,7 @@ class SubsController < ApplicationController
 
   def create
     new_sub = Sub.new(sub_params)
-    new_sub.moderator = current_user.id
+    new_sub.moderator_id = current_user.id
 
     if new_sub.save
       redirect_to sub_url(new_sub.id)
@@ -18,6 +18,7 @@ class SubsController < ApplicationController
   end
 
   def edit
+    @sub = Sub.find_by_id(params[:id])
   end
 
   def update
@@ -48,8 +49,8 @@ class SubsController < ApplicationController
   def require_owner!
     sub_edit = Sub.find_by_id(params[:id])
     unless current_user == sub_edit.moderator
-      flash[:errors] = "You need to be a moderator to edit this sub."
-      redirect_to sub_url(params[:id])
+      flash[:errors] = "You need to be a moderator to edit a sub."
+      redirect_to subs_url
     end
   end
 end

@@ -1,0 +1,7 @@
+<h1>Subs</h1>
+
+<% @subs.each do |sub| %>
+  <a href="<%= sub_url(sub.id) %>"><%= sub.title %></a><%= button_to "Edit Sub", edit_sub_url(sub.id), method:"get" %>
+  <br>
+<% end %>
+<%= flash[:errors] %>
