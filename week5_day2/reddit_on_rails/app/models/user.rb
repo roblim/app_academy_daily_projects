@@ -16,6 +16,16 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true
   after_initialize :ensure_session_token
 
+  has_many :subs,
+    foreign_key: :moderator_id,
+    primary_key: :id,
+    class_name: :Sub
+
+  has_many :posts,
+    foreign_key: :author_id,
+    primary_key: :id,
+    class_name: :Post
+
   attr_reader :password
 
   def generate_session_token
