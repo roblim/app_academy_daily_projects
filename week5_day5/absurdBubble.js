@@ -46,6 +46,7 @@ const absurdBubbleSort = function absurdBubbleSort (arr, sortCompletionCallback)
 const sortCompletionCallback = function sortCompletionCallback(arr) {
   console.log(`Sorting is complete! Thanks for your help. Your sorted array is: `);
   console.log(arr);
+  reader.close();
 };
 
 const arr = [2,5,4,3,6,5,444,3,44,2345,7564,23,1];
