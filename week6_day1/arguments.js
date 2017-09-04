@@ -48,33 +48,33 @@ class Cat {
   }
 }
 
-const markov = new Cat("Markov");
-const breakfast = new Cat("Breakfast");
-
-markov.says("meow", "Ned");
-// Markov says meow to Ned!
-// true
-
-// bind time args are "meow" and "Kush", no call time args
-markov.says.myBind(breakfast, "meow", "Kush")();
-// Breakfast says meow to Kush!
-// true
-
-// no bind time args (other than context), call time args are "meow" and "me"
-markov.says.myBind(breakfast)("meow", "a tree");
-// Breakfast says meow to a tree!
-// true
-
-// bind time arg is "meow", call time arg is "Markov"
-markov.says.myBind(breakfast, "meow")("Markov");
-// Breakfast says meow to Markov!
-// true
-
-// no bind time args (other than context), call time args are "meow" and "me"
-const notMarkovSays = markov.says.myBind(breakfast);
-notMarkovSays("meow", "me");
-// Breakfast says meow to me!
-// true
+// const markov = new Cat("Markov");
+// const breakfast = new Cat("Breakfast");
+//
+// markov.says("meow", "Ned");
+// // Markov says meow to Ned!
+// // true
+//
+// // bind time args are "meow" and "Kush", no call time args
+// markov.says.myBind(breakfast, "meow", "Kush")();
+// // Breakfast says meow to Kush!
+// // true
+//
+// // no bind time args (other than context), call time args are "meow" and "me"
+// markov.says.myBind(breakfast)("meow", "a tree");
+// // Breakfast says meow to a tree!
+// // true
+//
+// // bind time arg is "meow", call time arg is "Markov"
+// markov.says.myBind(breakfast, "meow")("Markov");
+// // Breakfast says meow to Markov!
+// // true
+//
+// // no bind time args (other than context), call time args are "meow" and "me"
+// const notMarkovSays = markov.says.myBind(breakfast);
+// notMarkovSays("meow", "me");
+// // Breakfast says meow to me!
+// // true
 
 const curriedSum = function curriedSum(levels) {
   const numbers = [];
@@ -87,4 +87,38 @@ const curriedSum = function curriedSum(levels) {
     }
   };
   return _curriedSum;
+};
+
+function sumThree(num1, num2, num3) {
+  return num1 + num2 + num3;
+}
+
+Function.prototype.curry = function(numArgs) {
+  // let argCollection = [];
+  // const func = this;
+  // const _curry = function _curry(arg) {
+  //   argCollection.push(arg);
+  //   if (numArgs === argCollection.length) {
+  //     const result = func.apply(func, argCollection);
+  //     argCollection = [];
+  //     return result;
+  //   } else {
+  //     return _curry;
+  //   }
+  // };
+  // return _curry;
+
+  let argCollection = [];
+  const func = this;
+  const _curry = function _curry(arg) {
+    argCollection.push(arg);
+    if (numArgs === argCollection.length) {
+      const result = func(...argCollection);
+      argCollection = [];
+      return result;
+    } else {
+      return _curry;
+    }
+  };
+  return _curry;
 };
