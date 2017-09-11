@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./lib/jquery_lite.js" charset="utf-8"></script>
+
+    </script>
+
+  </head>
+
+  <style media="screen">
+    .ul-island {
+      border: 2px solid red;
+      padding: 20px;
+    }
+
+    .outer-div {
+      border: 2px solid green;
+      padding: 20px;
+    }
+
+    .middle-div {
+      border: 2px solid blue;
+      padding: 20px;
+    }
+
+    .inner-div {
+      border: 2px solid orange;
+      padding: 20px;
+    }
+
+    .inner-ul {
+      border: 2px solid purple;
+      padding: 20px;
+    }
+  </style>
+
+  <body>
+
+    <ul class="ul-island">
+      <strong>ul-island</strong>
+      <li>First island li</li>
+      <li>Second island li</li>
+      <li>Third island li</li>
+    </ul>
+
+
+    <div class="outer-div">
+      <strong>outer-div</strong>
+      <div class="middle-div">
+        <strong>middle-div</strong>
+        <div class="inner-div">
+          <strong>inner-div</strong>
+          <p>What a nice little cloister!</p>
+          <ul class="inner-ul">
+            <strong>inner-ul</strong>
+            <li>First inner li</li>
+            <li>Second inner li</li>
+            <li>Third inner li</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+</html>

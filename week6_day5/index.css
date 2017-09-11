@@ -1,0 +1,126 @@
+body {
+  font-family: 'Oswald', sans-serif;
+}
+
+
+#main {
+  padding: 20px;
+
+}
+
+#main .clock {
+  width: 50%;
+  background-color: aquamarine;
+  border: 2px solid purple;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.auto {
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 2px solid grey;
+}
+
+.names {
+  list-style: none;
+}
+
+.names li span{
+  cursor: pointer;
+}
+
+.clock {
+  padding: 10px;
+}
+
+.clock-header {
+  display: flex;
+  justify-content: center;
+  border: 1px solid blue;
+}
+
+.time, .date {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid orange;
+}
+
+.time h3, .date h3 {
+  color: red;
+  border: 1px solid magenta;
+  padding: 10px;
+}
+
+.city {
+  color: tan;
+  font-style: oblique;
+}
+
+.weather {
+  border: 4px dotted black;
+  width: 60%;
+  margin: auto;
+  margin-top: 30px;
+  text-align: center;
+  /*display: flex;*/
+  /*justify-content: center;*/
+  border-radius: 4px;
+}
+
+.weather h1, .weather div {
+  margin: 30px;
+}
+
+.weather div {
+  font-size: 60px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: red;
+}
+
+.tab-header:hover {
+  background-color: black;
+  color: white;
+}
+
+.tab-header {
+  margin: 0
+}
+
+.headers {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: left;
+}
+
+.tab-content {
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+}
+
+.content-cont {
+  border: 1px solid blue;
+  height: 100px;
+}
+
+.tab-header {
+  border-left: 1px solid blue;
+  border-top: 1px solid blue;
+  border-right: 1px solid blue;
+}
+
+.tab-container {
+  border: 1px solid green;
+  margin: auto;
+  width: 400px;
+  padding: 20px;
+}
