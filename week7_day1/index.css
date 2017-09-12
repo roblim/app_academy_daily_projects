@@ -1,0 +1,27 @@
+body {
+  font-family: 'Oswald', sans-serif;
+}
+
+li {
+  list-style: none
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+}
+
+.todo-ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid blue;
+}
+
+.todo-item {
+  border: 2px solid lavender;
+}
+
+.todo-form {
+  border: 2px solid pink;
+}
