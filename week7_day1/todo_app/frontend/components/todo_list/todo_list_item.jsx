@@ -14,7 +14,7 @@ class TodoListItem extends React.Component {
   doneToggle() {
     let done = this.props.todo.done ? false : true;
     this.props.todo.done = done;
-    this.props.receiveTodo(this.props.todo);
+    this.props.createTodo(this.props.todo);
   }
 
   done() {

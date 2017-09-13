@@ -1,0 +1,79 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font-family: 'Oswald', sans-serif;
+  background-color: aquamarine;
+}
+
+li {
+  list-style: none
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+}
+
+.todo-ul {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid orange;
+}
+
+.todo-li {
+  color: blue;
+}
+
+.todo-li-text {
+  cursor: pointer;
+}
+
+.todo-item {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid purple;
+}
+
+.todo-form {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 2px solid blue;
+}
+
+.todo-form h4 {
+  margin: none;
+}
+
+.todo-form input, .todo-form textarea {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+input[type=submit] {
+    border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height:25px;
+    background: #f4f4f4;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #f4f4f4), color-stop(100%, #ededed));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, #f4f4f4 1%, #ededed 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#ededed', GradientType=0);
+    /* IE6-9 */
+}

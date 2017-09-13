@@ -1,4 +1,5 @@
 import React from 'react';
+import merge from 'lodash/merge';
 
 class StepListItem extends React.Component {
   constructor(props) {
@@ -10,8 +11,8 @@ class StepListItem extends React.Component {
 
   doneToggle() {
     let done = this.props.step.done ? false : true;
-    this.props.step.done = done;
-    this.props.receiveStep(this.props.step);
+    let toggled = merge({}, this.props.step, { done: done });
+    this.props.receiveStep(toggled);
   }
 
   done() {
