@@ -1,3 +1,35 @@
 // Place all the styles related to the pokemon controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+li {
+  list-style: none;
+}
+
+.pokemon-index-ul {
+  border: 2px solid green;
+  // display: flex;
+  // flex-direction: column;
+  width: 30%;
+  height: calc(100% - 20px);
+  overflow: scroll;
+}
+
+.pokemon-index-li {
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin: 5px;
+}
+
+.pokemon-index-li span {
+  font-size: 20px;
+  border: 2px solid blue;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.pokemon-index-ul img {
+  border: 2px solid blue;
+}
