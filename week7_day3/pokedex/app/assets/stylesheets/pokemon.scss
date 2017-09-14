@@ -6,30 +6,46 @@ li {
   list-style: none;
 }
 
+.pokemon-detail {
+  border: 2px solid orange;
+}
+
+.pokemon-index {
+  display: flex;
+}
+
 .pokemon-index-ul {
   border: 2px solid green;
   // display: flex;
   // flex-direction: column;
-  width: 30%;
-  height: calc(100% - 20px);
+  // width: 20%;
+  height: 100%;
   overflow: scroll;
 }
 
 .pokemon-index-li {
-  border: 2px solid red;
+  // border: 2px solid red;
+  margin: 10px;
+  margin-left: 30px;
+}
+
+.index-item-link {
   display: flex;
   align-items: center;
   justify-content: left;
-  margin: 5px;
 }
 
 .pokemon-index-li span {
-  font-size: 20px;
-  border: 2px solid blue;
+  font-size: 25px;
+  // border: 2px solid blue;
   margin-left: 10px;
   margin-right: 10px;
 }
 
 .pokemon-index-ul img {
-  border: 2px solid blue;
+  // border: 2px solid blue;
+}
+
+.pokemon-index-ul img {
+  width: 50px;
 }
