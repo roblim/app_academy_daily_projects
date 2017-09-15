@@ -22,7 +22,7 @@ class PokemonIndex extends React.Component {
         <ul className='pokemon-index-ul'>
         {pokemonItems}
         </ul>
-        <Route exact path='/pokemon/:pokemonId' component={PokemonDetailContainer}/>
+        <Route path='/pokemon/:pokemonId' component={PokemonDetailContainer}/>
       </div>
     );
   }

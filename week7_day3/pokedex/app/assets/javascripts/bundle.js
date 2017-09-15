@@ -45223,7 +45223,7 @@ var PokemonIndex = function (_React$Component) {
           { className: 'pokemon-index-ul' },
           pokemonItems
         ),
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/pokemon/:pokemonId', component: _pokemon_detail_container2.default })
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/pokemon/:pokemonId', component: _pokemon_detail_container2.default })
       );
     }
   }]);
@@ -49657,7 +49657,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    pokemon: (0, _selectors.selectPokemon)(state)
+    pokemon: (0, _selectors.selectPokemon)(state),
+    state: state
   };
 };
 
@@ -49688,6 +49689,12 @@ var _react = __webpack_require__(82);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(350);
+
+var _item_detail_container = __webpack_require__(381);
+
+var _item_detail_container2 = _interopRequireDefault(_item_detail_container);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -49717,16 +49724,28 @@ var PokemonDetail = function (_React$Component) {
       var oldPokemonId = this.props.match.params.pokemonId;
       var newPokemonId = newProps.match.params.pokemonId;
       if (oldPokemonId === newPokemonId) {
-        return null;
+        return;
       }
       this.props.requestSinglePokemon(newProps.match.params.pokemonId);
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       if (!this.props.pokemon) {
         return null;
       }
+
+      var itemImages = this.props.pokemon.item_ids.map(function (id) {
+        var url = _this2.props.state.entities.items[id].image_url;
+        return _react2.default.createElement(
+          _reactRouterDom.Link,
+          { to: _this2.props.location.pathname + '/items/' + id },
+          _react2.default.createElement('img', { src: url })
+        );
+      });
+
       return _react2.default.createElement(
         'div',
         { className: 'pokemon-detail' },
@@ -49737,28 +49756,43 @@ var PokemonDetail = function (_React$Component) {
           this.props.pokemon.name
         ),
         _react2.default.createElement(
-          'h4',
+          'p',
           null,
           'Type: ',
           this.props.pokemon.poke_type
         ),
         _react2.default.createElement(
-          'h4',
+          'p',
           null,
           'Attack: ',
           this.props.pokemon.attack
         ),
         _react2.default.createElement(
-          'h4',
+          'p',
           null,
           'Defense: ',
           this.props.pokemon.defense
         ),
         _react2.default.createElement(
-          'h4',
+          'p',
           null,
           'Moves: ',
           this.props.pokemon.moves
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'item-area' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Items'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'item-images' },
+            itemImages
+          ),
+          _react2.default.createElement(_reactRouterDom.Route, { path: '/pokemon/:pokemonId/items/:itemId', component: _item_detail_container2.default })
         )
       );
     }
@@ -49768,6 +49802,105 @@ var PokemonDetail = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PokemonDetail;
+
+/***/ }),
+/* 381 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(318);
+
+var _item_detail = __webpack_require__(382);
+
+var _item_detail2 = _interopRequireDefault(_item_detail);
+
+var _selectors = __webpack_require__(309);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  return {
+    item: state.entities.items[ownProps.match.params.itemId]
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {};
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_item_detail2.default);
+
+/***/ }),
+/* 382 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(82);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ItemDetail = function (_React$Component) {
+  _inherits(ItemDetail, _React$Component);
+
+  function ItemDetail() {
+    _classCallCheck(this, ItemDetail);
+
+    return _possibleConstructorReturn(this, (ItemDetail.__proto__ || Object.getPrototypeOf(ItemDetail)).apply(this, arguments));
+  }
+
+  _createClass(ItemDetail, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h3',
+          null,
+          this.props.item.name
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Happiness: ',
+          this.props.item.happiness
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Price: $',
+          this.props.item.price
+        )
+      );
+    }
+  }]);
+
+  return ItemDetail;
+}(_react2.default.Component);
+
+exports.default = ItemDetail;
 
 /***/ })
 /******/ ]);

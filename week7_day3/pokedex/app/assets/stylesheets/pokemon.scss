@@ -6,12 +6,38 @@ li {
   list-style: none;
 }
 
-.pokemon-detail {
-  border: 2px solid orange;
-}
-
 .pokemon-index {
   display: flex;
+}
+
+.item-images {
+  display: flex;
+}
+
+.item-images img {
+  width: 60px;
+}
+
+.item-area {
+  border: 2px solid teal;
+}
+
+.item-images {
+  border: 2px solid magenta;
+}
+
+.pokemon-detail {
+  border: 2px solid orange;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: black;
+  margin-left: 300px;
+}
+
+.pokemon-detail p {
+  font-size: 16px;
 }
 
 .pokemon-index-ul {
